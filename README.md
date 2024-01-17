@@ -36,5 +36,5 @@ Explore API endpoints using Postman. You can import the Postman collection direc
 1. Open Postman.
 2. Click on the "Import" button.
 3. Select the "Link" tab.
-4. Paste the Postman Collection https://api.postman.com/collections/5649559-a73b3eaa-3fcc-4083-9ca8-4da9f66c7821?access_key=PMAT-01HMAWD28JVE1E7M7HF3DGK71Q: [https://api.postman.com/collections/5649559-a73b3eaa-3fcc-4083-9ca8-4da9f66c7821?access_key=PMAT-01HMAWD28JVE1E7M7HF3DGK71Q].
+4. Paste the Postman Collection https://api.postman.com/collections/5649559-a73b3eaa-3fcc-4083-9ca8-4da9f66c7821?access_key=PMAT-01HMAWD28JVE1E7M7HF3DGK71Q
 5. Click "Continue" and then "Import."
