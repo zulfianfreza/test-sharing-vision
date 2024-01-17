@@ -1,6 +1,6 @@
 # Dockerized Test Sharing Vision
 
-This repository contains a Goland backend and Nextjs frontend
+This repository contains a Golang backend and Nextjs frontend
 
 ## Prerequisites
 
