@@ -27,4 +27,14 @@ docker-compose up --build
 
 ## Postman Collection
 
-Explore API endpoints using Postman. Refer to the [Postman Collection Documentation](https://www.postman.com/universal-flare-506596/workspace/julianreza/collection/5649559-a73b3eaa-3fcc-4083-9ca8-4da9f66c7821?action=share&creator=5649559) for detailed information.
+Explore API endpoints using Postman. You can import the Postman collection directly from the following URL:
+
+[Postman Collection](https://api.postman.com/collections/5649559-a73b3eaa-3fcc-4083-9ca8-4da9f66c7821?access_key=PMAT-01HMAWD28JVE1E7M7HF3DGK71Q)
+
+## Running the Postman Collection
+
+1. Open Postman.
+2. Click on the "Import" button.
+3. Select the "Link" tab.
+4. Paste the Postman Collection https://api.postman.com/collections/5649559-a73b3eaa-3fcc-4083-9ca8-4da9f66c7821?access_key=PMAT-01HMAWD28JVE1E7M7HF3DGK71Q: [https://api.postman.com/collections/5649559-a73b3eaa-3fcc-4083-9ca8-4da9f66c7821?access_key=PMAT-01HMAWD28JVE1E7M7HF3DGK71Q].
+5. Click "Continue" and then "Import."

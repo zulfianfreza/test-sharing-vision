@@ -1,0 +1,160 @@
+{
+  "collection": {
+    "info": {
+      "_postman_id": "a73b3eaa-3fcc-4083-9ca8-4da9f66c7821",
+      "name": "Test Sharing Vision",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "updatedAt": "2024-01-17T04:51:32.000Z",
+      "uid": "5649559-a73b3eaa-3fcc-4083-9ca8-4da9f66c7821",
+      "createdAt": null,
+      "lastUpdatedBy": null
+    },
+    "item": [
+      {
+        "name": "Article",
+        "item": [
+          {
+            "name": "Find All",
+            "id": "2b4cf966-a865-4664-af70-3a4e77363767",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "{{URL}}/article?page=1&status=draft",
+                "host": ["{{URL}}"],
+                "path": ["article"],
+                "query": [
+                  {
+                    "key": "page",
+                    "value": "1"
+                  },
+                  {
+                    "key": "status",
+                    "value": "draft"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "uid": "5649559-2b4cf966-a865-4664-af70-3a4e77363767"
+          },
+          {
+            "name": "Create",
+            "id": "2308206b-395e-43ab-929d-838f9d090c78",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"title\": \"Pemandangan Senja di Pegunungan\",\n    \"content\": \"Pada sebuah pagi yang segar, embun masih melekat di ujung daun, menyinari taman dengan kilauan lembut. Burung-burung berkicau riang sambil terbang dari satu dahan ke dahan lainnya. Mentari pagi memberikan kehangatan yang menyenangkan, menerangi langit dengan warna-warna cerah. Semua elemen alam menyatu dalam harmoni, menciptakan suasana yang damai dan menghidupkan keindahan pagi yang tiada duanya.\",\n    \"category\": \"Alam\",\n    \"status\": \"draft\"\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "{{URL}}/article",
+                "host": ["{{URL}}"],
+                "path": ["article"]
+              }
+            },
+            "response": [],
+            "uid": "5649559-2308206b-395e-43ab-929d-838f9d090c78"
+          },
+          {
+            "name": "Find by ID",
+            "id": "b2895ae3-d5b8-4ac6-b540-b5f6af2a8a89",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "{{URL}}/article/1",
+                "host": ["{{URL}}"],
+                "path": ["article", "1"]
+              }
+            },
+            "response": [],
+            "uid": "5649559-b2895ae3-d5b8-4ac6-b540-b5f6af2a8a89"
+          },
+          {
+            "name": "Update",
+            "id": "b166554b-02cd-4822-becf-fa816b32164f",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "PATCH",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"title\": \"Pemandangan Senja di Pegunungan\",\n    \"content\": \"Pada sebuah pagi yang segar, embun masih melekat di ujung daun, menyinari taman dengan kilauan lembut. Burung-burung berkicau riang sambil terbang dari satu dahan ke dahan lainnya. Mentari pagi memberikan kehangatan yang menyenangkan, menerangi langit dengan warna-warna cerah. Semua elemen alam menyatu dalam harmoni, menciptakan suasana yang damai dan menghidupkan keindahan pagi yang tiada duanya.\",\n    \"category\": \"Alam\",\n    \"status\": \"draft\"\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "{{URL}}/article/2",
+                "host": ["{{URL}}"],
+                "path": ["article", "2"]
+              }
+            },
+            "response": [],
+            "uid": "5649559-b166554b-02cd-4822-becf-fa816b32164f"
+          },
+          {
+            "name": "Delete",
+            "id": "a4ee8c09-5758-48c7-98fe-ec27150ada64",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "DELETE",
+              "header": []
+            },
+            "response": [],
+            "uid": "5649559-a4ee8c09-5758-48c7-98fe-ec27150ada64"
+          }
+        ],
+        "id": "e15caafc-b928-4a15-b4d2-8925082da2c3",
+        "uid": "5649559-e15caafc-b928-4a15-b4d2-8925082da2c3"
+      }
+    ],
+    "event": [
+      {
+        "listen": "prerequest",
+        "script": {
+          "id": "97baa784-832d-42f6-b11a-26cb631b37ff",
+          "type": "text/javascript",
+          "exec": [""]
+        }
+      },
+      {
+        "listen": "test",
+        "script": {
+          "id": "aefebbf8-7fea-42c3-bb78-83cb142b4708",
+          "type": "text/javascript",
+          "exec": [""]
+        }
+      }
+    ],
+    "variable": [
+      {
+        "key": "URL",
+        "value": "http://localhost:8007",
+        "type": "string"
+      }
+    ]
+  }
+}
