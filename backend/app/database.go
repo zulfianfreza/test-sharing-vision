@@ -1,10 +1,6 @@
 package app
 
 import (
-	"errors"
-	"log"
-	"time"
-
 	"github.com/zulfianfreza/test-sharing-vision-backend/entity"
 	"github.com/zulfianfreza/test-sharing-vision-backend/helper"
 	"gorm.io/driver/mysql"
@@ -12,28 +8,28 @@ import (
 )
 
 func NewDB() *gorm.DB {
-	dsn := "julian:1i2r3e4a@tcp(database:3306)/test-sharing-vision"
 
-	maxRetries := 30
-	retryInterval := 1 * time.Second
+	// maxRetries := 30
+	// retryInterval := 1 * time.Second
 
-	var db *gorm.DB
-	var err error
+	// var db *gorm.DB
+	// var err error
 
-	// Gorm configuration for MySQL connection
+	// for i := 0; i < maxRetries; i++ {
+	// 	db, err = gorm.Open(mysql.Open("julian:julian@tcp(db:3306)/tsv?charset=utf8&parseTime=True&loc=Local"))
 
-	for i := 0; i < maxRetries; i++ {
-		db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	// 	if err == nil {
+	// 		break
+	// 	}
 
-		if err == nil {
-			break
-		}
+	// 	log.Printf("Failed to connect to MySQL: %v. Retrying in %v...", err, retryInterval)
+	// 	time.Sleep(retryInterval)
+	// }
 
-		log.Printf("Failed to connect to MySQL: %v. Retrying in %v...", err, retryInterval)
-		time.Sleep(retryInterval)
-	}
+	// helper.PanicIfError(errors.New("unable to connect to mysql after multiple retries"))
 
-	helper.PanicIfError(errors.New("unable to connect to mysql after multiple retries"))
+	db, err := gorm.Open(mysql.Open("root:5C22HGD5FBC1Gc4B6fFfGgAcHaA-h5dA@(viaduct.proxy.rlwy.net:58293)/railway?parseTime=true"))
+	helper.PanicIfError(err)
 
 	db.AutoMigrate(&entity.Post{})
 

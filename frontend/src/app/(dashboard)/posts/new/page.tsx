@@ -8,6 +8,7 @@ import { createPost } from "@/services/post";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 export default function NewPostPage() {
@@ -24,14 +25,13 @@ export default function NewPostPage() {
   } = useForm<PostCreateRequest>({
     resolver: zodResolver(postCreateRequest),
     defaultValues: {
-      title: "Pemandangan Senja di Pegunungan",
-      content:
-        'Pada sebuah pagi yang segar, embun masih melekat di ujung daun, menyinari taman dengan kilauan lembut. Burung-burung berkicau riang sambil terbang dari satu dahan ke dahan lainnya. Mentari pagi memberikan kehangatan yang menyenangkan, menerangi langit dengan warna-warna cerah. Semua elemen alam menyatu dalam harmoni, menciptakan suasana yang damai dan menghidupkan keindahan pagi yang tiada duanya."',
-      category: "Alam",
+      title: "",
+      content: "",
+      category: "",
     },
   });
 
-  const { mutate, isPending } = useMutation({
+  const { mutateAsync, isPending, isSuccess } = useMutation({
     mutationKey: ["post", "create"],
     mutationFn: createPost,
   });
@@ -39,12 +39,16 @@ export default function NewPostPage() {
   const onSubmit: SubmitHandler<PostCreateRequest> = async (data) => {
     const request = postCreateRequest.parse(data);
 
-    mutate(request);
-
-    queryClient.invalidateQueries({ queryKey: ["posts"] });
-
-    router.push(`/posts?status=${request.status}`);
+    mutateAsync(request);
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      queryClient.invalidateQueries({ queryKey: ["posts"] });
+
+      router.push(`/posts?status=${getValues("status")}`);
+    }
+  }, [getValues, router, queryClient, isSuccess]);
 
   return (
     <div>

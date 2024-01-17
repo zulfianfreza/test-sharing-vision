@@ -1,6 +1,8 @@
 package repository
 
 import (
+	"time"
+
 	"github.com/zulfianfreza/test-sharing-vision-backend/entity"
 	"github.com/zulfianfreza/test-sharing-vision-backend/exception"
 	"gorm.io/gorm"
@@ -15,6 +17,8 @@ func NewPostRepository(DB *gorm.DB) PostRepository {
 }
 
 func (repository *PostRepositoryImpl) Save(post entity.Post) (entity.Post, error) {
+	post.CreatedDate = time.Now()
+	post.UpdatedDate = time.Now()
 	err := repository.DB.Save(&post).Error
 
 	if err != nil {
@@ -65,6 +69,7 @@ func (repository *PostRepositoryImpl) FindById(postId int) (entity.Post, error) 
 	return post, nil
 }
 func (repository *PostRepositoryImpl) Update(post entity.Post) (entity.Post, error) {
+	post.UpdatedDate = time.Now()
 	err := repository.DB.Save(&post).Error
 
 	if err != nil {

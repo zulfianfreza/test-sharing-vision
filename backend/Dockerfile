@@ -1,15 +1,22 @@
+# Dockerfile for Go application
+
+# Use the official Golang image as the base image
 FROM golang:latest
 
-WORKDIR /app/server
+# Set the working directory inside the container
+WORKDIR /app/backend
 
-COPY go.mod go.sum ./
-
-RUN go mod download
-
+# Copy the Go application files into the container
 COPY . .
 
-RUN go build -o main
+# Download and install any dependencies
+RUN go mod download
 
-EXPOSE 8000
+# Build the Go application
+RUN go build -o main .
 
+# Expose the port that the Go application will run on
+EXPOSE 8007
+
+# Command to run the Go application
 CMD ["./main"]
